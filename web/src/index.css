@@ -36,3 +36,24 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.about-grid .about-image {
+  max-width: 280px;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .about-grid .about-image {
+    max-width: none;
+  }
+}

@@ -33,25 +33,64 @@ const AboutPage = () => {
                     Building digital products with purpose.
                 </motion.h1>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        style={{
-                            width: '100%',
-                            aspectRatio: '3/4',
-                            background: '#222',
-                            borderRadius: '12px',
-                            overflow: 'hidden'
-                        }}
-                    >
-                        <img
-                            src="/images/profile-kevin.png"
-                            alt="Kevin Boyle in Pittsburgh"
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        />
-                    </motion.div>
+                <div className="about-grid">
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <motion.div
+                            className="about-image"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                            style={{
+                                width: '100%',
+                                aspectRatio: '3/4',
+                                background: '#222',
+                                borderRadius: '12px',
+                                overflow: 'hidden'
+                            }}
+                        >
+                            <img
+                                src="/images/kevin-roast.png"
+                                alt="Kevin Boyle"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
+                        </motion.div>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.3, duration: 0.8 }}
+                                style={{
+                                    aspectRatio: '1/1',
+                                    background: '#222',
+                                    borderRadius: '12px',
+                                    overflow: 'hidden'
+                                }}
+                            >
+                                <img
+                                    src="/images/kevin-tree-film.png"
+                                    alt="Kevin Boyle"
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.4, duration: 0.8 }}
+                                style={{
+                                    aspectRatio: '1/1',
+                                    background: '#222',
+                                    borderRadius: '12px',
+                                    overflow: 'hidden'
+                                }}
+                            >
+                                <img
+                                    src="/images/IMG_0269.JPG"
+                                    alt="Kevin Boyle"
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
+                            </motion.div>
+                        </div>
+                    </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                         <motion.div
