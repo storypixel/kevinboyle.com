@@ -2,44 +2,78 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-// Mock data - in a real app this might come from a CMS or API
 const projectData = {
     1: {
-        title: 'Sottozero',
-        category: 'Web Design / Development',
-        image: '#2a2a2a',
-        description: 'Sottozero is a premium digital experience designed to showcase the intersection of minimalism and functionality. We focused on creating a seamless user journey through micro-interactions and bold typography.',
-        client: 'Sottozero S.r.l',
-        year: '2023',
-        role: 'Design & Development'
+        title: 'Radius',
+        category: 'Product Design',
+        heroImage: '/images/project-radius.jpg',
+        description: 'Radius is a B2B data intelligence platform providing businesses with accurate contact and company data. I led the design of marketing pages, the style guide system, and interactive data visualization experiences.',
+        client: 'Radius Intelligence',
+        year: '2018',
+        role: 'Product Design',
+        gallery: [
+            '/images/radius/5bcecb67a8474991c15c8f34_test-drive-01.png',
+            '/images/radius/5bcecab7969f00dfd003b5bc_Screen-Shot-2018-03-22-at-11.03.19-AM-p-1600.png',
+            '/images/radius/5bd0b4002b661f0895a0a664_Screen-Shot-2018-10-24-at-12.52.49-PM-p-1600_1.png',
+            '/images/radius/5bd0b42a35f0c5e30b706c9c_Screen-Shot-2018-10-24-at-12.55.24-PM-p-1600.png'
+        ]
     },
     2: {
-        title: 'Dark Mode Aesthetics',
-        category: 'UI Kit',
-        image: '#1a1a1a',
-        description: 'A comprehensive UI kit for modern dark mode interfaces. This project explored the nuances of contrast and accessibility in low-light environments.',
-        client: 'Internal Project',
-        year: '2023',
-        role: 'Product Design'
+        title: 'Textline',
+        category: 'Product Design',
+        heroImage: '/images/textline-screencap.png',
+        textColor: '#000',
+        description: 'Textline is a secure business texting platform built for modern customer support, sales, and marketing teams. I worked on the product design, creating intuitive interfaces for team collaboration and customer communication.',
+        client: 'Textline',
+        year: '2020',
+        role: 'Product Design',
+        gallery: [
+            '/images/textline/Screenshot-2025-08-15-at-11.27.52.png',
+            '/images/textline/Screenshot-2025-08-15-at-11.29.32.png'
+        ]
     },
     3: {
-        title: 'Radius',
-        category: 'Branding',
-        image: '#222',
-        description: 'Radius is a fintech startup looking to disrupt the lending market. We created a brand identity that feels trustworthy yet innovative, using circular motifs to represent continuity.',
-        client: 'Radius Finance',
-        year: '2023',
-        role: 'Branding & Identity'
+        title: 'Textedly',
+        category: 'Product Design',
+        heroImage: '/images/textedly-screencap.png',
+        textColor: '#000',
+        description: 'Textedly is an SMS marketing platform that helps businesses send bulk text messages to their customers. I designed the user experience for campaign creation, contact management, and analytics dashboards.',
+        client: 'Textedly',
+        year: '2019',
+        role: 'Product Design',
+        gallery: [
+            '/images/textedly-screencap.png'
+        ]
     },
     4: {
-        title: 'Purchase Power',
-        category: 'Campaign',
-        image: '#f5f5f0',
+        title: 'Mozeo',
+        category: 'Product Design',
+        heroImage: '/images/mozeo-screencap.png',
         textColor: '#000',
-        description: 'A marketing campaign focused on consumer empowerment. The visual language uses bright colors and bold statements to drive engagement.',
-        client: 'Consumer Watch',
-        year: '2024',
-        role: 'Art Direction'
+        description: 'Mozeo is a versatile SMS marketing solution serving restaurants, retail, ecommerce, and nonprofits. I led the redesign of their marketing website and product interfaces to improve conversion and user engagement.',
+        client: 'Mozeo',
+        year: '2021',
+        role: 'Product Design',
+        gallery: [
+            '/images/mozeo-01.png',
+            '/images/mozeo-02.png',
+            '/images/mozeo-03.png',
+            '/images/mozeo-04.png'
+        ]
+    },
+    5: {
+        title: 'Crypto',
+        category: 'NFT Art',
+        heroImage: '/images/nft-3.png',
+        description: 'A collection of generative NFT artwork exploring digital identity and vibrant aesthetics. Each piece combines algorithmic generation with hand-crafted elements.',
+        client: 'Personal Project',
+        year: '2022',
+        role: 'Art Direction',
+        gallery: [
+            '/images/nft-3.png',
+            '/images/nft-4.png',
+            '/images/nft-10.png'
+        ]
     }
 };
 
@@ -74,19 +108,43 @@ const ProjectDetail = () => {
                     height: '60vh',
                     width: 'calc(100% - 2 * var(--spacing-container))',
                     margin: '0 auto',
-                    background: project.image,
                     borderRadius: '16px',
                     position: 'relative',
                     display: 'flex',
                     alignItems: 'flex-end',
-                    padding: '4rem'
+                    padding: '4rem',
+                    overflow: 'hidden'
                 }}
             >
+                <img
+                    src={project.heroImage}
+                    alt={project.title}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        zIndex: 0
+                    }}
+                />
+                <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%)',
+                    zIndex: 1
+                }} />
                 <h1 style={{
                     fontSize: 'clamp(3rem, 6vw, 5rem)',
                     lineHeight: 1,
                     margin: 0,
-                    color: textColor
+                    color: '#fff',
+                    position: 'relative',
+                    zIndex: 2
                 }}>
                     {project.title}
                 </h1>
@@ -118,11 +176,30 @@ const ProjectDetail = () => {
                         {project.description}
                     </h2>
 
-                    {/* Gallery Placeholders */}
-                    <div style={{ marginTop: '6rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <div style={{ width: '100%', aspectRatio: '16/9', background: '#1a1a1a', borderRadius: '8px' }} />
-                        <div style={{ width: '100%', aspectRatio: '16/9', background: '#1a1a1a', borderRadius: '8px' }} />
-                    </div>
+                    {/* Gallery */}
+                    {project.gallery && project.gallery.length > 0 && (
+                        <div style={{ marginTop: '6rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                            {project.gallery.map((image, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                                >
+                                    <img
+                                        src={image}
+                                        alt={`${project.title} - Image ${index + 1}`}
+                                        style={{
+                                            width: '100%',
+                                            borderRadius: '8px',
+                                            display: 'block'
+                                        }}
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </article>

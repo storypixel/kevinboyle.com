@@ -6,35 +6,43 @@ import './Work.css';
 const projects = [
     {
         id: 1,
-        title: 'Sottozero',
-        category: 'Web Design / Development',
+        title: 'Radius',
+        category: 'Product Design',
         size: 'full',
-        image: '/images/project-sottozero.jpg',
-        color: '#2a2a2a'
-    },
-    {
-        id: 2,
-        title: 'Dark Mode Aesthetics',
-        category: 'UI Kit',
-        size: 'half',
-        image: '/images/project-darkmode.jpg',
+        image: '/images/project-radius.jpg',
         color: '#1a1a1a'
     },
     {
-        id: 3,
-        title: 'Radius',
-        category: 'Branding',
+        id: 2,
+        title: 'Textline',
+        category: 'Product Design',
         size: 'half',
-        image: '/images/project-radius.jpg',
-        color: '#222'
+        image: '/images/textline-screencap.png',
+        color: '#ffffff'
+    },
+    {
+        id: 3,
+        title: 'Textedly',
+        category: 'Product Design',
+        size: 'half',
+        image: '/images/textedly-screencap.png',
+        color: '#ffffff'
     },
     {
         id: 4,
-        title: 'Purchase Power',
-        category: 'Campaign',
+        title: 'Mozeo',
+        category: 'Product Design',
         size: 'full',
-        image: '/images/project-purchasepower.jpg',
-        color: '#f5f5f0'
+        image: '/images/mozeo-screencap.png',
+        color: '#ffffff'
+    },
+    {
+        id: 5,
+        title: 'Crypto',
+        category: 'NFT Art',
+        size: 'half',
+        image: '/images/nft-3.png',
+        color: '#f5e642'
     }
 ];
 
@@ -66,10 +74,10 @@ const Work = () => {
                             </div>
 
                             <div className="project-info">
-                                <h3 className="project-title" style={{ color: project.color === '#f5f5f0' ? '#000' : '#fff' }}>
+                                <h3 className="project-title" style={{ color: ['#f5f5f0', '#ffffff', '#f5e642'].includes(project.color) ? '#000' : '#fff' }}>
                                     {project.title}
                                 </h3>
-                                <p className="project-category" style={{ color: project.color === '#f5f5f0' ? '#666' : '#888' }}>
+                                <p className="project-category" style={{ color: ['#f5f5f0', '#ffffff', '#f5e642'].includes(project.color) ? '#666' : '#888' }}>
                                     {project.category}
                                 </p>
                             </div>
