@@ -4,6 +4,8 @@ import { ReactLenis } from 'lenis/react';
 import Hero from './components/Hero';
 import Work from './components/Work';
 import About from './components/About';
+import Services from './components/Services';
+import MoreWork from './components/MoreWork';
 import ProjectDetail from './components/ProjectDetail';
 import AboutPage from './components/AboutPage';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,6 +16,8 @@ function HomePage() {
       <Hero />
       <Work />
       <About />
+      <Services />
+      <MoreWork />
     </>
   );
 }
