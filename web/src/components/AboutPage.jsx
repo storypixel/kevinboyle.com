@@ -5,35 +5,55 @@ import { Link } from 'react-router-dom';
 const AboutPage = () => {
     return (
         <article style={{ minHeight: '100vh', paddingBottom: '10vh' }}>
-            <div style={{ padding: '2rem var(--spacing-container)' }}>
-                <Link to="/" style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    fontSize: '0.9rem',
-                    color: 'var(--text-secondary)',
-                    marginBottom: '2rem'
-                }}>
-                    ← Back
-                </Link>
-            </div>
+            {/* Navigation - matches global grid: 80px 280px 1fr 160px */}
+            <nav style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 100,
+                padding: '1.5rem var(--spacing-container)',
+                display: 'grid',
+                gridTemplateColumns: '80px 280px 1fr 160px',
+                gap: '2rem',
+                alignItems: 'start',
+                backgroundColor: 'var(--bg-color)',
+            }}>
+                <Link to="/" style={{ fontSize: '0.9rem', color: 'var(--text-color)', gridColumn: '1 / 3', textDecoration: 'none' }}>Kevin Boyle</Link>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '0.15rem', gridColumn: '3' }}>
+                    <span>Austin, TX</span>
+                    <span>Design Technologist</span>
+                </div>
+                <div style={{ display: 'flex', gap: '2.5rem', justifyContent: 'flex-end', fontSize: '0.9rem', gridColumn: '4' }}>
+                    <a href="mailto:noise@kevinboyle.us" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
+                        Email <span style={{ fontSize: '0.85rem' }}>┐</span>
+                    </a>
+                    <Link to="/about" style={{ color: 'var(--text-color)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
+                        About <span style={{ fontSize: '0.85rem' }}>┐</span>
+                    </Link>
+                    <a href="/KevinBoyleResume-design-tech.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
+                        CV <span style={{ fontSize: '0.85rem' }}>┐</span>
+                    </a>
+                </div>
+            </nav>
 
-            <div style={{ padding: '0 var(--spacing-container)' }}>
+            <div style={{ padding: '8rem var(--spacing-container) 0' }}>
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     style={{
                         fontSize: 'clamp(3rem, 6vw, 5rem)',
-                        lineHeight: 1,
+                        lineHeight: 1.1,
                         marginBottom: '4rem',
-                        maxWidth: '15ch'
+                        maxWidth: '18ch',
+                        fontWeight: 400,
                     }}
                 >
-                    Building digital products with purpose.
+                    Context engineering is the art of shaping AI behavior.
                 </motion.h1>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginBottom: '6rem' }}>
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -47,26 +67,26 @@ const AboutPage = () => {
                         }}
                     >
                         <img
-                            src="/images/profile-kevin.png"
-                            alt="Kevin Boyle in Pittsburgh"
+                            src="/images/scraped/homepage/kevin-photo.jpg"
+                            alt="Kevin Boyle"
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
                     </motion.div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.8 }}
                         >
-                            <h2 style={{ fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.6, marginBottom: '2rem' }}>
-                                My name is Kevin Boyle. I am a designer and developer based in San Francisco, working at the intersection of brand and product.
-                            </h2>
+                            <p style={{ fontSize: '1.25rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                                I bring a decade of design experience to this emerging discipline. From building design systems at IBM to crafting user experiences at startups, I've learned that the best interfaces disappear.
+                            </p>
                             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                                With over 8 years of experience, I have helped startups and established companies alike launch products that people love. My approach is rooted in simplicity and a deep understanding of user needs.
+                                Now I apply those principles to human-AI collaboration, designing the invisible architectures that shape how machines understand intent.
                             </p>
                             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                                I specialize in design systems, interaction design, and creative development. I believe that the best digital experiences are those that feel natural and effortless.
+                                Based in Austin, TX. Currently exploring the frontier of AI-native interfaces and context-aware systems.
                             </p>
                         </motion.div>
 
@@ -75,13 +95,13 @@ const AboutPage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
                         >
-                            <h3 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2rem', color: 'var(--text-secondary)' }}>Services</h3>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem', fontSize: '1.2rem' }}>
-                                <li>Art Direction</li>
+                            <h3 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>Expertise</h3>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '1rem' }}>
+                                <li>Context Engineering</li>
+                                <li>Design Systems</li>
+                                <li>Human-AI Collaboration</li>
                                 <li>Product Design (UI/UX)</li>
-                                <li>Web Development</li>
-                                <li>Brand Identity</li>
-                                <li>Design Strategy</li>
+                                <li>Front-end Development</li>
                             </ul>
                         </motion.div>
 
@@ -90,13 +110,51 @@ const AboutPage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
                         >
-                            <h3 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2rem', color: 'var(--text-secondary)' }}>Contact</h3>
-                            <a href="mailto:hello@kevinboyle.com" style={{ fontSize: '1.2rem', textDecoration: 'underline' }}>
-                                hello@kevinboyle.com
+                            <h3 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>Contact</h3>
+                            <a href="mailto:noise@kevinboyle.us" style={{ fontSize: '1rem', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                                noise@kevinboyle.us
                             </a>
                         </motion.div>
                     </div>
                 </div>
+
+                {/* Photo Gallery */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                        gap: '2rem',
+                    }}
+                >
+                    <div style={{
+                        aspectRatio: '4/3',
+                        borderRadius: '12px',
+                        overflow: 'hidden',
+                        background: '#222',
+                    }}>
+                        <img
+                            src="/images/scraped/homepage/kevin-roast.png"
+                            alt="Kevin Boyle"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
+                    <div style={{
+                        aspectRatio: '4/3',
+                        borderRadius: '12px',
+                        overflow: 'hidden',
+                        background: '#222',
+                    }}>
+                        <img
+                            src="/images/scraped/homepage/kevin-tree-film.png"
+                            alt="Kevin Boyle"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
+                </motion.div>
             </div>
         </article>
     );

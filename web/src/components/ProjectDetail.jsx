@@ -1,131 +1,244 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { projectDetails } from '../data/projects';
+import AppModal from './AppModal';
+import './ProjectDetail.css';
 
-// Mock data - in a real app this might come from a CMS or API
-const projectData = {
-    1: {
-        title: 'Sottozero',
-        category: 'Web Design / Development',
-        image: '#2a2a2a',
-        description: 'Sottozero is a premium digital experience designed to showcase the intersection of minimalism and functionality. We focused on creating a seamless user journey through micro-interactions and bold typography.',
-        client: 'Sottozero S.r.l',
-        year: '2023',
-        role: 'Design & Development'
-    },
-    2: {
-        title: 'Dark Mode Aesthetics',
-        category: 'UI Kit',
-        image: '#1a1a1a',
-        description: 'A comprehensive UI kit for modern dark mode interfaces. This project explored the nuances of contrast and accessibility in low-light environments.',
-        client: 'Internal Project',
-        year: '2023',
-        role: 'Product Design'
-    },
-    3: {
-        title: 'Radius',
-        category: 'Branding',
-        image: '#222',
-        description: 'Radius is a fintech startup looking to disrupt the lending market. We created a brand identity that feels trustworthy yet innovative, using circular motifs to represent continuity.',
-        client: 'Radius Finance',
-        year: '2023',
-        role: 'Branding & Identity'
-    },
-    4: {
-        title: 'Purchase Power',
-        category: 'Campaign',
-        image: '#f5f5f0',
-        textColor: '#000',
-        description: 'A marketing campaign focused on consumer empowerment. The visual language uses bright colors and bold statements to drive engagement.',
-        client: 'Consumer Watch',
-        year: '2024',
-        role: 'Art Direction'
-    }
+// React Six Pack apps - these have interactive demos
+const REACT_SIX_PACK_APPS = {
+    brewdial: { name: 'BrewDial', url: '/apps/brewdial/index.html' },
+    typescale: { name: 'TypeScale', url: '/apps/typescale/index.html' },
+    palettepop: { name: 'PalettePop', url: '/apps/palettepop/index.html' },
+    atlas: { name: 'Atlas', url: null }, // TypeScript build errors - needs fix
+    platemath: { name: 'PlateMath', url: '/apps/platemath/index.html' },
+    macromini: { name: 'MacroMini', url: '/apps/macromini/index.html' },
 };
 
 const ProjectDetail = () => {
     const { id } = useParams();
-    const project = projectData[id];
+    const project = projectDetails[id];
+    const reactApp = REACT_SIX_PACK_APPS[id];
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    if (!project) return <div>Project not found</div>;
+    if (!project) {
+        return (
+            <div style={{
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                gap: '2rem'
+            }}>
+                <h1 style={{ fontSize: '2rem' }}>Project not found</h1>
+                <Link to="/" style={{ color: 'var(--text-secondary)' }}>Back to home</Link>
+            </div>
+        );
+    }
 
-    const textColor = project.textColor || '#fff';
+    // Split gallery into sections for varied layout
+    const heroImage = project.hero;
+    const galleryImages = project.gallery || [];
+    const firstPair = galleryImages.slice(0, 2);
+    const secondPair = galleryImages.slice(2, 4);
+    const remainingImages = galleryImages.slice(4);
 
     return (
-        <article style={{ minHeight: '100vh', paddingBottom: '10vh' }}>
-            <div style={{ padding: '2rem var(--spacing-container)' }}>
-                <Link to="/" style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    fontSize: '0.9rem',
-                    color: 'var(--text-secondary)',
-                    marginBottom: '2rem'
-                }}>
-                    ← Back
-                </Link>
+        <motion.article
+            className="project-detail"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            {/* Navigation */}
+            <nav className="project-nav">
+                <Link to="/" className="nav-name">Kevin Boyle</Link>
+                <div className="nav-info">
+                    <span>Austin, TX</span>
+                    <span>Design Technologist</span>
+                </div>
+                <div className="nav-links">
+                    <a href="mailto:noise@kevinboyle.us" className="nav-link">
+                        Email <span className="nav-arrow">┐</span>
+                    </a>
+                    <Link to="/about" className="nav-link">
+                        About <span className="nav-arrow">┐</span>
+                    </Link>
+                    <a href="/KevinBoyleResume-design-tech.pdf" className="nav-link" target="_blank" rel="noopener noreferrer">
+                        CV <span className="nav-arrow">┐</span>
+                    </a>
+                </div>
+            </nav>
+
+            {/* Project Header */}
+            <header className="project-header">
+                <span className="project-header-year">{project.year}</span>
+                <h1 className="project-header-title">{project.title}</h1>
+                <p className="project-header-description">{project.description}</p>
+                <div className="project-header-role">
+                    <div className="project-header-role-label">Role</div>
+                    <div className="project-header-role-value">{project.role}</div>
+                </div>
+            </header>
+
+            {/* Project Content */}
+            <div className="project-content">
+                {/* Hero Image */}
+                {heroImage && (
+                    <section className="project-hero-section">
+                        <motion.div
+                            className={`project-hero-wrapper ${reactApp ? 'project-hero-interactive' : ''}`}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            onClick={reactApp ? () => setIsModalOpen(true) : undefined}
+                            style={reactApp ? { cursor: 'pointer' } : undefined}
+                        >
+                            <img
+                                src={heroImage}
+                                alt={project.title}
+                                className="project-hero-image"
+                            />
+                            {reactApp && (
+                                <div className="project-hero-overlay">
+                                    <span className="project-hero-overlay-text">Launch Demo</span>
+                                </div>
+                            )}
+                        </motion.div>
+                    </section>
+                )}
+
+                {/* Work Description Section */}
+                {project.workDescription && (
+                    <section className="content-block content-block--dark">
+                        <div className="content-block-inner">
+                            <div className="content-row">
+                                <span className="content-label">Problems</span>
+                                <div className="content-main">
+                                    <h2 className="content-heading">{project.roleBlurb || project.description}</h2>
+                                    <p className="content-text">{project.workDescription}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* Gallery Section 1 - Light background */}
+                {firstPair.length > 0 && (
+                    <section className="content-block content-block--light">
+                        <div className="content-block-inner">
+                            <div className="content-row">
+                                <span className="content-label">Work</span>
+                                <div className="content-main">
+                                    <div className={`gallery-grid ${firstPair.length === 1 ? 'gallery-grid--single' : ''}`}>
+                                        {firstPair.map((image, index) => (
+                                            <motion.div
+                                                key={image}
+                                                className="gallery-item"
+                                                initial={{ opacity: 0, y: 30 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                            >
+                                                <img
+                                                    src={image}
+                                                    alt={`${project.title} work ${index + 1}`}
+                                                />
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* Gallery Section 2 - Dark background */}
+                {secondPair.length > 0 && (
+                    <section className="content-block content-block--dark">
+                        <div className="content-block-inner">
+                            <div className="content-row">
+                                <span className="content-label">Details</span>
+                                <div className="content-main">
+                                    <div className={`gallery-grid ${secondPair.length === 1 ? 'gallery-grid--single' : ''}`}>
+                                        {secondPair.map((image, index) => (
+                                            <motion.div
+                                                key={image}
+                                                className="gallery-item"
+                                                initial={{ opacity: 0, y: 30 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                            >
+                                                <img
+                                                    src={image}
+                                                    alt={`${project.title} detail ${index + 1}`}
+                                                />
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* Remaining Gallery - Light background */}
+                {remainingImages.length > 0 && (
+                    <section className="content-block content-block--light">
+                        <div className="content-block-inner">
+                            <div className="content-row">
+                                <span className="content-label">More</span>
+                                <div className="content-main">
+                                    <div className={`gallery-grid ${remainingImages.length === 1 ? 'gallery-grid--single' : ''}`}>
+                                        {remainingImages.map((image, index) => (
+                                            <motion.div
+                                                key={image}
+                                                className="gallery-item"
+                                                initial={{ opacity: 0, y: 30 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                            >
+                                                <img
+                                                    src={image}
+                                                    alt={`${project.title} additional ${index + 1}`}
+                                                />
+                                            </motion.div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
             </div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                    height: '60vh',
-                    width: 'calc(100% - 2 * var(--spacing-container))',
-                    margin: '0 auto',
-                    background: project.image,
-                    borderRadius: '16px',
-                    position: 'relative',
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    padding: '4rem'
-                }}
-            >
-                <h1 style={{
-                    fontSize: 'clamp(3rem, 6vw, 5rem)',
-                    lineHeight: 1,
-                    margin: 0,
-                    color: textColor
-                }}>
-                    {project.title}
-                </h1>
-            </motion.div>
-
-            <div style={{
-                padding: '6rem var(--spacing-container)',
-                display: 'grid',
-                gridTemplateColumns: '1fr 2fr',
-                gap: '4rem'
-            }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                    <div>
-                        <h3 style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Client</h3>
-                        <p>{project.client}</p>
-                    </div>
-                    <div>
-                        <h3 style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Role</h3>
-                        <p>{project.role}</p>
-                    </div>
-                    <div>
-                        <h3 style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Year</h3>
-                        <p>{project.year}</p>
-                    </div>
+            {/* Footer */}
+            <footer className="project-footer">
+                <div className="project-footer-left">
+                    Designed by Kevin Boyle
                 </div>
-
-                <div>
-                    <h2 style={{ fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.6, maxWidth: '40ch' }}>
-                        {project.description}
-                    </h2>
-
-                    {/* Gallery Placeholders */}
-                    <div style={{ marginTop: '6rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <div style={{ width: '100%', aspectRatio: '16/9', background: '#1a1a1a', borderRadius: '8px' }} />
-                        <div style={{ width: '100%', aspectRatio: '16/9', background: '#1a1a1a', borderRadius: '8px' }} />
-                    </div>
+                <div className="project-footer-center">
+                    <span>Senior Design Technologist </span>
+                    <a href="mailto:noise@kevinboyle.us">Available for Hire</a>
                 </div>
-            </div>
-        </article>
+                <div className="project-footer-right">
+                    © 2025
+                </div>
+            </footer>
+
+            {/* App Modal for React Six Pack demos */}
+            {reactApp && (
+                <AppModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    appName={reactApp.name}
+                    appUrl={reactApp.url}
+                />
+            )}
+        </motion.article>
     );
 };
 

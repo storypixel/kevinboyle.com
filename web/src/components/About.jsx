@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const About = () => {
+    const sideProjects = [
+        { name: 'Bandcamp', url: 'https://subdotwav.bandcamp.com/' },
+        { name: 'Transgressive Podcast', url: 'https://podcasts.apple.com/us/podcast/transgressive/id1533896215' },
+        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kevinboyle/' },
+    ];
+
     return (
         <section style={{
             padding: '10vh var(--spacing-container)',
@@ -20,22 +25,49 @@ const About = () => {
                 transition={{ duration: 0.8 }}
             >
                 <h2 style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2rem', color: 'var(--text-secondary)' }}>
-                    About Me
+                    About
                 </h2>
                 <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: '1.2', marginBottom: '2rem' }}>
-                    Hey, I'm Kevin.
+                    Context engineering is the art of shaping AI behavior.
                 </h3>
-                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '40ch', marginBottom: '2rem' }}>
-                    I'm a digital product designer focusing on building brands and websites for tech companies. I believe in clarity, purpose, and aesthetics that last.
+                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '45ch', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                    I bring a decade of design experience to this emerging discipline. From building design systems at IBM to crafting user experiences at startups, I've learned that the best interfaces disappear.
                 </p>
-                <Link to="/about" style={{
-                    display: 'inline-block',
-                    borderBottom: '1px solid #fff',
-                    paddingBottom: '4px',
-                    fontSize: '0.9rem'
-                }}>
-                    Read more
-                </Link>
+                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', maxWidth: '45ch', marginBottom: '2rem', lineHeight: '1.6' }}>
+                    Now I apply those principles to human-AI collaboration, designing the invisible architectures that shape how machines understand intent.
+                </p>
+
+                <div style={{ marginTop: '2rem' }}>
+                    <p style={{
+                        fontSize: '12px',
+                        color: 'var(--text-secondary)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        marginBottom: '1rem',
+                    }}>
+                        More Work
+                    </p>
+                    <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+                        {sideProjects.map((project) => (
+                            <a
+                                key={project.name}
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    fontSize: '0.9rem',
+                                    borderBottom: '1px solid #444',
+                                    paddingBottom: '4px',
+                                    transition: 'border-color 0.3s ease',
+                                }}
+                                onMouseEnter={(e) => e.target.style.borderColor = '#fff'}
+                                onMouseLeave={(e) => e.target.style.borderColor = '#444'}
+                            >
+                                {project.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
             </motion.div>
 
             <motion.div
@@ -52,7 +84,7 @@ const About = () => {
                 transition={{ duration: 0.8 }}
             >
                 <img
-                    src="/images/profile-kevin.png"
+                    src="/images/scraped/homepage/kevin-photo.jpg"
                     alt="Kevin Boyle"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />

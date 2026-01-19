@@ -1,0 +1,4 @@
+:HL["/apps/macromini/_next/static/chunks/44dd797aa4572196.css","style"]
+:HL["/apps/macromini/_next/static/media/2290fed2b3404919-s.p.ed928179.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/apps/macromini/_next/static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"fSXB9tOcXwVMmMGz3BFUj","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
