@@ -28,7 +28,7 @@ const Footer = () => {
                         Experimental sensory coordination—
                     </p>
                     <a
-                        href="mailto:noise@kevinboyle.us?subject=Ayoo"
+                        href="mailto:thekevinboyle@gmail.com?subject=Ayoo"
                         style={{
                             display: 'inline-block',
                             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div>
 
                 <motion.a
-                    href="mailto:subdotwav@gmail.com?subject=Link%20up"
+                    href="mailto:thekevinboyle@gmail.com?subject=Link%20up"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -71,7 +71,7 @@ const Footer = () => {
                     <span style={{
                         fontSize: '1rem',
                     }}>
-                        subdotwav@gmail.com
+                        thekevinboyle@gmail.com
                     </span>
                 </motion.a>
             </motion.div>

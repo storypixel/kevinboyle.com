@@ -56,13 +56,13 @@ const ExplorePage = () => {
           fontSize: '0.9rem',
           pointerEvents: 'auto',
         }}>
-          <a href="mailto:noise@kevinboyle.us" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <a href="mailto:thekevinboyle@gmail.com" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             Email <span style={{ fontSize: '0.85rem' }}>┐</span>
           </a>
           <Link to="/about" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             About <span style={{ fontSize: '0.85rem' }}>┐</span>
           </Link>
-          <a href="/KevinBoyleResume-design-tech.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <a href="/kevin-boyle-general-2026.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             CV <span style={{ fontSize: '0.85rem' }}>┐</span>
           </a>
         </div>

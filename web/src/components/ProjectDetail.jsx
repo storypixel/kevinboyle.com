@@ -59,13 +59,13 @@ const ProjectDetail = () => {
                     <span>Design Technologist</span>
                 </div>
                 <div className="nav-links">
-                    <a href="mailto:noise@kevinboyle.us" className="nav-link">
+                    <a href="mailto:thekevinboyle@gmail.com" className="nav-link">
                         Email <span className="nav-arrow">┐</span>
                     </a>
                     <Link to="/about" className="nav-link">
                         About <span className="nav-arrow">┐</span>
                     </Link>
-                    <a href="/KevinBoyleResume-design-tech.pdf" className="nav-link" target="_blank" rel="noopener noreferrer">
+                    <a href="/kevin-boyle-general-2026.pdf" className="nav-link" target="_blank" rel="noopener noreferrer">
                         CV <span className="nav-arrow">┐</span>
                     </a>
                 </div>
@@ -222,7 +222,7 @@ const ProjectDetail = () => {
                 </div>
                 <div className="project-footer-center">
                     <span>Senior Design Technologist </span>
-                    <a href="mailto:noise@kevinboyle.us">Available for Hire</a>
+                    <a href="mailto:thekevinboyle@gmail.com">Available for Hire</a>
                 </div>
                 <div className="project-footer-right">
                     © 2025

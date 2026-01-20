@@ -25,13 +25,13 @@ const AboutPage = () => {
                     <span>Design Technologist</span>
                 </div>
                 <div style={{ display: 'flex', gap: '2.5rem', justifyContent: 'flex-end', fontSize: '0.9rem', gridColumn: '4' }}>
-                    <a href="mailto:noise@kevinboyle.us" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
+                    <a href="mailto:thekevinboyle@gmail.com" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
                         Email <span style={{ fontSize: '0.85rem' }}>┐</span>
                     </a>
                     <Link to="/about" style={{ color: 'var(--text-color)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
                         About <span style={{ fontSize: '0.85rem' }}>┐</span>
                     </Link>
-                    <a href="/KevinBoyleResume-design-tech.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
+                    <a href="/kevin-boyle-general-2026.pdf" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
                         CV <span style={{ fontSize: '0.85rem' }}>┐</span>
                     </a>
                 </div>
@@ -111,8 +111,8 @@ const AboutPage = () => {
                             transition={{ delay: 0.5, duration: 0.8 }}
                         >
                             <h3 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>Contact</h3>
-                            <a href="mailto:noise@kevinboyle.us" style={{ fontSize: '1rem', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-                                noise@kevinboyle.us
+                            <a href="mailto:thekevinboyle@gmail.com" style={{ fontSize: '1rem', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                                thekevinboyle@gmail.com
                             </a>
                         </motion.div>
                     </div>
