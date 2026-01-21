@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const About = () => {
     const sideProjects = [
-        { name: 'Bandcamp', url: 'https://subdotwav.bandcamp.com/' },
-        { name: 'Transgressive Podcast', url: 'https://podcasts.apple.com/us/podcast/transgressive/id1533896215' },
+        { name: 'Bandcamp', url: 'https://weareallgonners.bandcamp.com/' },
+        { name: 'Transgressive Podcast', url: 'https://transgressive.libsyn.com/' },
         { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kevinboyle/' },
     ];
 
