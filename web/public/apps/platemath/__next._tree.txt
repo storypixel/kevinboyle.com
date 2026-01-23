@@ -1,0 +1,4 @@
+:HL["/apps/platemath/_next/static/chunks/1675f71dc20a5f09.css","style"]
+:HL["/apps/platemath/_next/static/media/6ad1cda2f16975ee-s.p.b58dc1ff.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/apps/platemath/_next/static/media/c9e42e3eae6237c2-s.p.24d96596.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"fIFtHhUpEb6xZ7sxrmg9D","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

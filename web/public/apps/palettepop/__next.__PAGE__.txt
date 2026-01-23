@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[37099,["/apps/palettepop/_next/static/chunks/41d3ce613423a346.js"],"ClientPageRoot"]
+3:I[66698,["/apps/palettepop/_next/static/chunks/c03f277d10fc73e6.js","/apps/palettepop/_next/static/chunks/32a448b89b5b6a17.js"],"default"]
+6:I[6903,["/apps/palettepop/_next/static/chunks/41d3ce613423a346.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"Ica42hhqKBDZZRjuwdsrA","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/apps/palettepop/_next/static/chunks/32a448b89b5b6a17.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:{}
+8:null

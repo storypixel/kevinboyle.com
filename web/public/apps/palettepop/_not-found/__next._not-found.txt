@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[38497,["/apps/palettepop/_next/static/chunks/41d3ce613423a346.js"],"default"]
+3:I[62172,["/apps/palettepop/_next/static/chunks/41d3ce613423a346.js"],"default"]
+0:{"buildId":"Ica42hhqKBDZZRjuwdsrA","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
